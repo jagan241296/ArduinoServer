@@ -5,7 +5,7 @@
         <servlet-class>com.blindstick.servlets.userServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>smsSendServlet</servlet-name>
+        <servlet-name>ServletPanic</servlet-name>
         <servlet-class>com.blindstick.servlets.ServletPanic</servlet-class>
     </servlet>
     <servlet>
@@ -17,8 +17,8 @@
         <url-pattern>/userServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>smsSendServlet</servlet-name>
-        <url-pattern>/smsSendServlet</url-pattern>
+        <servlet-name>ServletPanic</servlet-name>
+        <url-pattern>/ServletPanic</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>locationServlet</servlet-name>

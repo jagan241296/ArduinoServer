@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -97,8 +98,26 @@ public class locationServlet extends HttpServlet {
                     }                                     
                     break;
                 }
+                case 3:
+                {
+                    System.out.println("Reaching case 3");
+                    responseJson.put(MacServer.KEY_REQUEST_TYPE, 0);
+                    System.out.println("Response data " + responseJson.toString());
+                       if (responseStatus == HttpServletResponse.SC_OK) 
+                       {  
+                            response.getOutputStream().print(responseJson.toString());
+                       }                 
+                         response.setStatus(responseStatus);
+                          System.out.println("sent status");
+                          
+                          //dispatch
+                          response.sendRedirect("ServletPanic");
+                         break;
+                }
             }
 
+            if(requestType == 2)
+            {  
             System.out.println("Response data " + responseJson.toString());
             //put response in stream
             if (responseStatus == HttpServletResponse.SC_OK) {
@@ -106,10 +125,11 @@ public class locationServlet extends HttpServlet {
                 
                 response.getOutputStream().print(responseJson.toString());
             }
-
             //send the response back & set status           
             response.setStatus(responseStatus);
             System.out.println("sent status");
+            }
+            
         } catch (JSONException ex) {
             ex.printStackTrace();
         } catch (SQLException ex) {

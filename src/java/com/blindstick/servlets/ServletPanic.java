@@ -74,8 +74,8 @@ public class ServletPanic extends HttpServlet {
                     //send sms
                     sendsms.init();
                     sendsms.server = "http://127.0.0.1:8800/";
-                    sendsms.user = "jagan241296";
-                    sendsms.password = "jagan241296";                    
+                    sendsms.user = "jaggu";
+                    sendsms.password = "jaggu";                    
                     sendsms.text = TTS;
                     sendsms.phonenumber = contact_1;
                     sendsms.send();
